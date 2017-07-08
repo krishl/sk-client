@@ -8,8 +8,10 @@ import NavBar from './components/NavBar.js';
 import PropTypes from 'prop-types';
 import configureStore from './store/configureStore';  
 import { Provider } from 'react-redux';
+import {loadProducts} from './actions/productActions'
 
 const store = configureStore();
+store.dispatch(loadProducts());
 
 const Compare = () => (
   <div>
