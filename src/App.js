@@ -6,6 +6,10 @@ import {
 } from 'react-router-dom'
 import NavBar from './components/NavBar.js';
 import PropTypes from 'prop-types';
+import configureStore from './store/configureStore';  
+import { Provider } from 'react-redux';
+
+const store = configureStore();
 
 const Compare = () => (
   <div>
@@ -32,16 +36,18 @@ const Product = ({ match }) => (
 )
 
 const ReactRouter = () => (
-  <Router>
-    <div className="navbar">
-      < NavBar />
-      <hr/>
+  <Provider store={store}>
+    <Router>
+      <div className="navbar">
+        < NavBar />
+        <hr/>
 
-      <Route exact path="/" component={Compare}/>
-      <Route path="/products" component={ProductsPage}/>
-      <Route path="/ingredients" component={IngredientsPage}/>
-    </div>
-  </Router>
+        <Route exact path="/" component={Compare}/>
+        <Route path="/products" component={ProductsPage}/>
+        <Route path="/ingredients" component={IngredientsPage}/>
+      </div>
+    </Router>
+  </Provider>
 )
 
 class App extends Component {
