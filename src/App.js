@@ -47,7 +47,7 @@ const ReactRouter = () => (
   </Provider>
 )
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
@@ -64,5 +64,3 @@ class App extends Component {
 App.propTypes = {  
   children: PropTypes.object.isRequired
 };
-
-export default App;
