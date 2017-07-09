@@ -1,4 +1,5 @@
 import productApi from '../api/productApi.js';
+import * as types from './actionTypes';  
 
 export function loadProducts() {  
   return function(dispatch) {
@@ -11,5 +12,5 @@ export function loadProducts() {
 }
 
 export function loadProductsSuccess(products) {  
-  return {type: 'LOAD_PRODUCTS_SUCCESS', products};
+  return {type: types.LOAD_PRODUCTS_SUCCESS, products};
 }
