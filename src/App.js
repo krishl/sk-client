@@ -10,15 +10,10 @@ import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import {loadProducts} from './actions/productActions'
 import Compare from './components/Compare.js';
+import ProductsPage from './components/containers/ProductsPage.js';
 
 const store = configureStore();
 store.dispatch(loadProducts());
-
-const ProductsPage = () => (
-  <div>
-    <h2>ProductsPage</h2>
-  </div>
-)
 
 const IngredientsPage = () => (
   <div>
