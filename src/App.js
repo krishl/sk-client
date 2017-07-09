@@ -9,15 +9,10 @@ import PropTypes from 'prop-types';
 import configureStore from './store/configureStore';  
 import { Provider } from 'react-redux';
 import {loadProducts} from './actions/productActions'
+import Compare from './components/Compare.js';
 
 const store = configureStore();
 store.dispatch(loadProducts());
-
-const Compare = () => (
-  <div>
-    <h2>Compare</h2>
-  </div>
-)
 
 const ProductsPage = () => (
   <div>
