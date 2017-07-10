@@ -50,12 +50,7 @@ export default class App extends Component {
         <div className="App-header">
           < ReactRouter />
         </div>
-        {this.props.children}
       </div>
     );
   }
 }
-
-App.propTypes = {  
-  children: PropTypes.object.isRequired
-};
