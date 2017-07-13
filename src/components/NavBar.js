@@ -6,7 +6,6 @@ const NavBar = props => {
     <div className="links">
       <NavLink exact to="/" activeClassName="active">Home</NavLink> 
       <NavLink to="/products" activeClassName="active">Products</NavLink>
-      <NavLink to="/ingredients" activeClassName="active">Ingredients</NavLink>
     </div>
   );
 }
