@@ -1,7 +1,6 @@
 import React, {Component} from 'react'; 
 import PropTypes from 'prop-types'; 
-import {connect} from 'react-redux';  
-import * as productActions from '../../actions/productActions';
+import {connect} from 'react-redux';
 import {StyleSheet, css} from 'aphrodite-jss';
 import ProductsList from '../ProductsList';
 import {
@@ -18,6 +17,7 @@ const sheet = StyleSheet.create({
     opacity: '.8',
     margin: 'auto',
     padding: '20px',
+    overflow: 'auto',
     '&:hover': { opacity: '.95' }
   },
   content: {
