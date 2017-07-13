@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types'; 
 import {StyleSheet, css} from 'aphrodite-jss';
+import IngredientsList from '../IngredientsList';
 
 const sheet = StyleSheet.create({
   content: {
@@ -9,7 +10,7 @@ const sheet = StyleSheet.create({
     height: '100%',
     float: 'right',
     position: 'relative',
-    top: '-94px'
+    borderLeft: '1px dashed #ddd'
   },
 })
 
@@ -17,24 +18,39 @@ class ProductPage extends Component {
   render() {
     return (
       <div className={css(sheet.content)}>
-        <h3>{this.props.product.attributes.name}</h3>
+        <h2>{this.props.product.attributes.name}</h2>
         Brand: {this.props.product.attributes.brand}
+        <IngredientsList ingredients={this.props.ingredients} /> 
       </div>
     );
   }
 };
 
+function retrieveIngredients(ingredients, product) {  
+  let ids = product.relationships.ingredients.data.map(ingId => ingId.id)
+  let retrieved = ingredients.filter(ingredient => {
+    return ids.includes(ingredient.id)
+  })
+  return retrieved
+}
+
 ProductPage.propTypes = {  
   product: PropTypes.object.isRequired,
+  ingredients: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {  
   let product = {attributes: {}};
+  let ingredients = [];
   if (state.products.length > 0) {
     product = Object.assign({}, state.products.find(product => product.id === 
       ownProps.match.params.id)
-    )}
-  return { product }
+    )
+    if (product.relationships.ingredients.data.length > 0) {
+      ingredients = retrieveIngredients(state.ingredients, product)
+    }
+  }
+  return { product, ingredients }
 };
 
 
