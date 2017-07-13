@@ -7,18 +7,14 @@ import {
 import NavBar from './components/NavBar.js';
 import configureStore from './store/configureStore';  
 import { Provider } from 'react-redux';
-import {loadProducts} from './actions/productActions'
+import {loadProducts} from './actions/productActions';
+import {loadIngredients} from './actions/ingredientActions';
 import Compare from './components/Compare.js';
 import ProductsPage from './components/containers/ProductsPage.js';
 
 const store = configureStore();
 store.dispatch(loadProducts());
-
-const IngredientsPage = () => (
-  <div>
-    <h2>IngredientsPage</h2>
-  </div>
-)
+store.dispatch(loadIngredients());
 
 const ReactRouter = () => (
   <Provider store={store}>
@@ -29,7 +25,6 @@ const ReactRouter = () => (
 
         <Route exact path="/" component={Compare}/>
         <Route path="/products" component={ProductsPage}/>
-        <Route path="/ingredients" component={IngredientsPage}/>
       </div>
     </Router>
   </Provider>
