@@ -4,6 +4,12 @@ import {connect} from 'react-redux';
 import * as productActions from '../../actions/productActions';
 import {StyleSheet, css} from 'aphrodite-jss';
 import ProductsList from '../ProductsList';
+import {
+  Switch,
+  Route
+} from 'react-router-dom'
+import ProductShow from './ProductShow.js';
+
 
 const sheet = StyleSheet.create({
   primary: {
@@ -25,6 +31,10 @@ class ProductsPage extends Component {
       <div className={css(sheet.primary)}>
         <div className={css(sheet.content)}>
           <ProductsList products={this.props.products} />
+          <Switch>
+            <Route path="/products/:id" component={ProductShow}/>
+          </Switch>
+          {this.props.children}
         </div>
       </div>
     )
