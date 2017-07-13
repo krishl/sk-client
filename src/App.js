@@ -5,7 +5,6 @@ import {
   Route
 } from 'react-router-dom'
 import NavBar from './components/NavBar.js';
-import PropTypes from 'prop-types';
 import configureStore from './store/configureStore';  
 import { Provider } from 'react-redux';
 import {loadProducts} from './actions/productActions'
@@ -18,12 +17,6 @@ store.dispatch(loadProducts());
 const IngredientsPage = () => (
   <div>
     <h2>IngredientsPage</h2>
-  </div>
-)
-
-const Product = ({ match }) => (
-  <div>
-    <h3>{match.params.productId}</h3>
   </div>
 )
 
