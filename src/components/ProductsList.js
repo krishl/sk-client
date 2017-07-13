@@ -7,7 +7,8 @@ const sheet = StyleSheet.create({
   div: {
     width: '30%',
     height: '100%',
-    overflowY: 'auto'
+    overflowY: 'auto',
+    float: 'left'
   },
   table: {
     borderCollapse: 'collapse',
