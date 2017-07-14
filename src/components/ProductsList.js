@@ -37,7 +37,7 @@ const ProductsList = ({ products }) => {
   );
   return (
     <div className={css(sheet.div)}>
-      <h2>Products</h2>
+      <p><button id="myButton"><Link to={`/products/new`}>Add New Product</Link></button></p>
       <table className={css(sheet.table)}>
         <tbody>
          {renderProducts}
