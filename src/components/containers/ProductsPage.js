@@ -45,7 +45,7 @@ ProductsPage.propTypes = {
   products: PropTypes.array.isRequired
 };
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     products: state.products
   }
