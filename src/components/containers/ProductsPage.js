@@ -8,7 +8,7 @@ import {
   Route
 } from 'react-router-dom'
 import ProductShow from './ProductShow.js';
-
+import NewProduct from './NewProduct.js';
 
 const sheet = StyleSheet.create({
   primary: {
@@ -32,6 +32,7 @@ class ProductsPage extends Component {
         <div className={css(sheet.content)}>
           <ProductsList products={this.props.products} />
           <Switch>
+            <Route path="/products/new" component={NewProduct}/> 
             <Route path="/products/:id" component={ProductShow}/>
           </Switch>
           {this.props.children}
