@@ -6,16 +6,33 @@ import IngredientsList from '../IngredientsList';
 
 const sheet = StyleSheet.create({
   content: {
-    width: '59%',
+    width: '69%',
     height: '100%',
     float: 'right',
-    position: 'relative',
-    borderLeft: '1px dashed #ddd'
+    overflowY: 'auto',
+    position: 'relative'
   },
 })
 
-class ProductPage extends Component {  
+class ProductShow extends Component {  
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {comparing: false};
+  // }
+
+  // toggleCompare = () => {
+  //   this.setState({comparing: !this.state.comparing})
+  // }
+
   render() {
+  //   if (this.state.comparing) {
+  //     return (
+  //       <div>
+  //         common ingredients
+  //       </div>
+  //     )
+  //   }
+
     return (
       <div className={css(sheet.content)}>
         <h2>{this.props.product.attributes.name}</h2>
@@ -34,7 +51,7 @@ function retrieveIngredients(ingredients, product) {
   return retrieved
 }
 
-ProductPage.propTypes = {  
+ProductShow.propTypes = {  
   product: PropTypes.object.isRequired,
   ingredients: PropTypes.array.isRequired
 };
@@ -46,7 +63,7 @@ function mapStateToProps(state, ownProps) {
     product = Object.assign({}, state.products.find(product => product.id === 
       ownProps.match.params.id)
     )
-    if (product.relationships.ingredients.data.length > 0) {
+    if (product.id && product.relationships.ingredients.data.length > 0) {
       ingredients = retrieveIngredients(state.ingredients, product)
     }
   }
@@ -54,4 +71,4 @@ function mapStateToProps(state, ownProps) {
 };
 
 
-export default connect(mapStateToProps)(ProductPage);  
+export default connect(mapStateToProps)(ProductShow);  
