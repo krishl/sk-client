@@ -6,7 +6,7 @@ import {StyleSheet, css} from 'aphrodite-jss';
 const sheet = StyleSheet.create({
   div: {
     width: '30%',
-    height: '100%',
+    height: '490px',
     overflowY: 'auto',
     float: 'left'
   },
