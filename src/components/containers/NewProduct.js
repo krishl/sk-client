@@ -1,10 +1,11 @@
 import React, {Component} from 'react'; 
 import PropTypes from 'prop-types' 
 import {connect} from 'react-redux';  
-import {bindActionCreators} from 'redux';  
+import {bindActionCreators} from 'redux'; 
+import update from 'immutability-helper' 
 import * as productActions from '../../actions/productActions';  
 import ProductForm from '../ProductForm';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
 class NewProduct extends Component {
   constructor(props) {
@@ -27,10 +28,11 @@ class NewProduct extends Component {
   }
 
   updateProductState = (event) => {
-    const field = event.target.name;
-    const product = this.state.product;
-    product[field] = event.target.value;
-    this.setState({product});
+    this.setState({
+      product: update(this.state.product, {
+      [event.target.name]: {$set: event.target.value},
+      })
+    })
   }
 
   handleSubmit = (event) => {
