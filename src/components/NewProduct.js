@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux';  
 import {bindActionCreators} from 'redux'; 
 import update from 'immutability-helper' 
-import * as productActions from '../../actions/productActions';  
-import ProductForm from '../ProductForm';
+import * as productActions from '../actions/productActions';  
+import ProductForm from './ProductForm';
 import { Redirect } from 'react-router-dom';
 
 class NewProduct extends Component {
@@ -62,16 +62,10 @@ NewProduct.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state) {  
-  return {
-    products: state.products
-  }
-}
-
 function mapDispatchToProps(dispatch) {  
   return {
     actions: bindActionCreators(productActions, dispatch)
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewProduct);  
+export default connect(null, mapDispatchToProps)(NewProduct);  
