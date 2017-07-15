@@ -35,7 +35,6 @@ class ProductsPage extends Component {
             <Route path="/products/new" component={NewProduct}/> 
             <Route path="/products/:id" component={ProductShow}/>
           </Switch>
-          {this.props.children}
         </div>
       </div>
     )
