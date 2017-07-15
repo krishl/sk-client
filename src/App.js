@@ -8,13 +8,11 @@ import NavBar from './components/NavBar.js';
 import configureStore from './store/configureStore';  
 import { Provider } from 'react-redux';
 import {loadProducts} from './actions/productActions';
-import {loadIngredients} from './actions/ingredientActions';
 import Compare from './components/Compare.js';
 import ProductsPage from './components/containers/ProductsPage.js';
 
 const store = configureStore();
 store.dispatch(loadProducts());
-store.dispatch(loadIngredients());
 
 const ReactRouter = () => (
   <Provider store={store}>
