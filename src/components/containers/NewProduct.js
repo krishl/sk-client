@@ -16,7 +16,6 @@ class NewProduct extends Component {
         brand: '',
         ingredients: []
       },
-      comparing: false,
       show: false
     }
   }
