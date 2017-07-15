@@ -33,7 +33,7 @@ const sheet = StyleSheet.create({
 
 const ProductsList = ({ products }) => {  
   const renderProducts = products.map(product => 
-    <tr key={product.id} className={css(sheet.row)}><td className={css(sheet.cell)}><Link to={`/products/${product.id}`}>{product.attributes.name}</Link></td></tr>
+    <tr key={product.id} className={css(sheet.row)}><td className={css(sheet.cell)}><Link to={`/products/${product.id}`}>{product.name}</Link></td></tr>
   );
   return (
     <div className={css(sheet.div)}>
