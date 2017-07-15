@@ -8,7 +8,7 @@ import {
   Route
 } from 'react-router-dom'
 import ProductShow from './ProductShow.js';
-import NewProduct from './NewProduct.js';
+import NewProduct from '../NewProduct.js';
 
 const sheet = StyleSheet.create({
   primary: {
