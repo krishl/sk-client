@@ -1,5 +1,8 @@
-import initialState from './initialState';
 import * as types from '../actions/actionTypes'; 
+
+const initialState = {  
+  products: []
+}
 
 export default function productReducer(state = initialState.products, action) {  
   switch(action.type) {
