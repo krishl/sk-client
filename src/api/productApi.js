@@ -1,6 +1,6 @@
 export default class ProductApi {  
   static getAllProducts() {
-    return fetch('http://localhost:3001/api/v1/products').then(response => {
+    return fetch('http://localhost:3001/api/v1/products.json').then(response => {
       return response.json();
     }).catch(error => {
       return error;
@@ -8,7 +8,7 @@ export default class ProductApi {
   }
 
   static createProduct(product) {
-    const request = new Request('http://localhost:3001/api/v1/products/', {
+    const request = new Request('http://localhost:3001/api/v1/products.json', {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json'
