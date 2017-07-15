@@ -4,7 +4,7 @@ import * as types from './actionTypes';
 export function loadProducts() {  
   return function(dispatch) {
     return productApi.getAllProducts().then(products => {
-      dispatch(loadProductsSuccess(products.data));
+      dispatch(loadProductsSuccess(products.products));
     }).catch(error => {
       throw(error);
     });
@@ -18,7 +18,7 @@ export function loadProductsSuccess(products) {
 export function createProduct(product) {  
   return function(dispatch) {
     return productApi.createProduct(product).then(response => {
-      dispatch(createProductSuccess(response.data));
+      dispatch(createProductSuccess(response.product));
     }).catch(error => {
       throw(error);
     });
