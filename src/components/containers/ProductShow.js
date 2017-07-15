@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types'; 
 import {StyleSheet, css} from 'aphrodite-jss';
-import IngredientsList from '../IngredientsList';
+import IndividualProduct from '../IndividualProduct';
 
 const sheet = StyleSheet.create({
   content: {
@@ -11,33 +11,14 @@ const sheet = StyleSheet.create({
     float: 'right',
     overflowY: 'auto',
     position: 'relative'
-  },
+  }
 })
 
 class ProductShow extends Component {  
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {comparing: false};
-  // }
-
-  // toggleCompare = () => {
-  //   this.setState({comparing: !this.state.comparing})
-  // }
-
   render() {
-  //   if (this.state.comparing) {
-  //     return (
-  //       <div>
-  //         common ingredients
-  //       </div>
-  //     )
-  //   }
-
     return (
       <div className={css(sheet.content)}>
-        <h2>{this.props.product.name}</h2>
-        Brand: {this.props.product.brand}
-        <IngredientsList ingredients={this.props.ingredients} /> 
+        < IndividualProduct product={this.props.product} />
       </div>
     );
   }
