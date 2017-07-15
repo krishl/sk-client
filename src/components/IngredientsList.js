@@ -7,7 +7,7 @@ const IngredientsList = ({ingredients}) => {
       <h3>Ingredients</h3>
       <ul>
         {ingredients.map(ingredient => 
-        <li key={ingredient.id}>{ingredient.attributes.name}</li>
+        <li key={ingredient.id}>{ingredient.name}</li>
         )}
       </ul>
     </div>
