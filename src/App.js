@@ -8,6 +8,7 @@ import NavBar from './components/NavBar.js';
 import configureStore from './store/configureStore';  
 import { Provider } from 'react-redux';
 import {loadProducts} from './actions/productActions';
+import Home from './components/Home.js';
 import Compare from './components/Compare.js';
 import ProductsPage from './components/containers/ProductsPage.js';
 
@@ -21,8 +22,9 @@ const ReactRouter = () => (
         < NavBar />
         <hr/>
 
-        <Route exact path="/" component={Compare}/>
+        <Route exact path="/" component={Home}/>
         <Route path="/products" component={ProductsPage}/>
+        <Route path="/compare" component={Compare}/>
       </div>
     </Router>
   </Provider>
