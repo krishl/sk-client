@@ -14,7 +14,7 @@ class NewProduct extends Component {
       product: {
         name: '', 
         brand: '',
-        ingredients: []
+        ings: ''
       },
       show: false
     }
