@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import Checkbox from './Checkbox';
 import {StyleSheet, css} from 'aphrodite-jss';
 
 const sheet = StyleSheet.create({
@@ -27,24 +28,51 @@ const sheet = StyleSheet.create({
     paddingTop: '12px',
     paddingBottom: '12px',
     textAlign: 'center',
-    color: 'white'
+    color: 'black'
   }
 })
 
-const ProductsList = ({ products }) => {  
-  const renderProducts = products.map(product => 
-    <tr key={product.id} className={css(sheet.row)}><td className={css(sheet.cell)}><Link to={`/products/${product.id}`}>{product.name}</Link></td></tr>
-  );
-  return (
-    <div className={css(sheet.div)}>
-      <p><button id="myButton"><Link to={`/products/new`}>Add New Product</Link></button></p>
-      <table className={css(sheet.table)}>
-        <tbody>
-         {renderProducts}
-        </tbody>
-      </table>
-    </div>
-  );
+class ProductsList extends Component {
+
+
+  createCheckbox = product => (
+    <tr key={product.id} className={css(sheet.row)}>
+      <td>
+        <Checkbox
+          product={product}
+          handleCheckboxChange={this.props.handleClick}
+        />
+      </td>
+      <td className={css(sheet.cell)}>
+       {product.name}
+      </td>
+    </tr>
+  )
+
+  createCheckboxes = () => (
+    this.props.products.map(this.createCheckbox)
+  )
+
+  renderProducts = () => (
+    this.props.products.map(product => 
+      <tr key={product.id} className={css(sheet.row)}><td className={css(sheet.cell)}><Link to={`/products/${product.id}`}>{product.name}</Link></td></tr>
+    )
+  )
+
+  render() {
+    return (
+      <div className={css(sheet.div)}>
+        <p><button id="myButton"><Link to={`/products/new`}>Add New Product</Link></button></p>
+          <form>
+            <table className={css(sheet.table)}>
+              <tbody>
+               {this.props.match.url === "/compare" ? this.createCheckboxes() : this.renderProducts()} 
+              </tbody>
+            </table>
+          </form>
+      </div>
+    );
+  }
 };
 
 
