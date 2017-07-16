@@ -5,7 +5,6 @@ import {StyleSheet, css} from 'aphrodite-jss';
 import ProductsList from '../ProductsList';
 import IndividualProduct from '../IndividualProduct';
 
-
 const sheet = StyleSheet.create({
   primary: {
     height: '490px',
@@ -45,7 +44,7 @@ class Compare extends Component {
     return (
       <div className={css(sheet.primary)}>
         <ProductsList products={this.props.products} match={this.props.match} handleClick={this.handleClick} />
-        {products.map((product, i) => <IndividualProduct product={product} key={i}/>)}
+        {products.map((product, i) => <IndividualProduct product={product} key={i} match={this.props.match} />)}
       </div>
     );
   }
