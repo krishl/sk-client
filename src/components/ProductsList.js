@@ -33,8 +33,6 @@ const sheet = StyleSheet.create({
 })
 
 class ProductsList extends Component {
-
-
   createCheckbox = product => (
     <tr key={product.id} className={css(sheet.row)}>
       <td>
