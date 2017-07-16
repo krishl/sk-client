@@ -30,7 +30,7 @@ class ProductsPage extends Component {
     return(
       <div className={css(sheet.primary)}>
         <div className={css(sheet.content)}>
-          <ProductsList products={this.props.products} />
+          <ProductsList products={this.props.products} match={this.props.match} />
           <Switch>
             <Route path="/products/new" component={NewProduct}/> 
             <Route path="/products/:id" component={ProductShow}/>
