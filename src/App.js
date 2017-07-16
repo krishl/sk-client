@@ -9,7 +9,7 @@ import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import {loadProducts} from './actions/productActions';
 import Home from './components/Home.js';
-import Compare from './components/Compare.js';
+import Compare from './components/containers/Compare.js';
 import ProductsPage from './components/containers/ProductsPage.js';
 
 const store = configureStore();
