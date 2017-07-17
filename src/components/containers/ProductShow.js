@@ -18,7 +18,7 @@ class ProductShow extends Component {
   render() {
     return (
       <div className={css(sheet.content)}>
-        < IndividualProduct product={this.props.product} />
+        < IndividualProduct product={this.props.product} match={this.props.match} />
       </div>
     );
   }
