@@ -14,26 +14,25 @@ const sheet = StyleSheet.create({
     width: 'auto',
     padding: '8px',
     height: 'auto',
-    float: 'right',
     borderStyle: 'dashed',
     borderWidth: '1px',
     borderColor: '#ddd',
     position: 'relative',
-    alignContent: 'flex-start',
-    flexWrap: 'wrap'
+    alignContent: 'flex-start'
   }
 })
+
+const productsStyle = css(sheet.products)
+const compareStyle = css(sheet.compare)
 
 export default class IndividualProduct extends Component {  
   render() {
     return (
-      <div>
-        <div className={css(sheet.products)}>
-          <h2>{this.props.product.name}</h2>
-          Brand: {this.props.product.brand}
-          <IngredientsList ingredients={this.props.product.ingredients} /> 
-          <br />
-        </div>
+      <div className={this.props.match.url === "/compare" ? compareStyle : productsStyle}>
+        <h2>{this.props.product.name}</h2>
+        Brand: {this.props.product.brand}
+        <IngredientsList ingredients={this.props.product.ingredients} /> 
+        <br />
       </div>
     );
   }
