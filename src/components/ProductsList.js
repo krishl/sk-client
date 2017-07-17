@@ -8,8 +8,8 @@ const sheet = StyleSheet.create({
   div: {
     width: '30%',
     height: '490px',
-    overflowY: 'auto',
-    float: 'left'
+    float: 'left',
+    overflowY: 'auto'
   },
   table: {
     borderCollapse: 'collapse',
