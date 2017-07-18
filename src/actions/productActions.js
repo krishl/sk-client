@@ -15,10 +15,11 @@ export function loadProductsSuccess(products) {
   return {type: types.LOAD_PRODUCTS_SUCCESS, products};
 }
 
-export function createProduct(product) {  
+export function createProduct(product, history) {  
   return function(dispatch) {
     return productApi.createProduct(product).then(response => {
       dispatch(createProductSuccess(response.product));
+      history.push(`/products/${response.product.id}`)
     }).catch(error => {
       throw(error);
     });

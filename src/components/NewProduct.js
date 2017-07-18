@@ -5,7 +5,6 @@ import {bindActionCreators} from 'redux';
 import update from 'immutability-helper' 
 import * as productActions from '../actions/productActions';  
 import ProductForm from './ProductForm';
-import { Redirect } from 'react-router-dom';
 
 class NewProduct extends Component {
   constructor(props) {
@@ -20,12 +19,6 @@ class NewProduct extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.products.length > this.props.products.length) {
-      this.setState({show: true})
-    }
-  }
-
   updateProductState = (event) => {
     this.setState({
       product: update(this.state.product, {
@@ -36,17 +29,10 @@ class NewProduct extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.actions.createProduct(this.state.product)
+    this.props.actions.createProduct(this.state.product, this.props.history)
   }
 
   render() {
-    if (this.state.show) {
-      const {products} = this.props
-      const newProduct = products[products.length - 1]
-      return (
-        <Redirect to={`/products/${newProduct.id}`}/>
-      )
-    }
     return (
       <div>
         <ProductForm 
