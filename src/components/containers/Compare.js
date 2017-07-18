@@ -4,16 +4,18 @@ import {connect} from 'react-redux';
 import {StyleSheet, css} from 'aphrodite-jss';
 import ProductsList from '../ProductsList';
 import IndividualProduct from '../IndividualProduct';
+import Similarities from '../Similarities';
 
 const sheet = StyleSheet.create({
   primary: {
-    height: '490px',
+    height: 'auto',
     backgroundColor: 'white',
     opacity: '.8',
     margin: 'auto',
     padding: '20px',
     '&:hover': { opacity: '.95' },
-    display: 'flex'
+    display: 'flex',
+    flexWrap: 'wrap'
   },
   content: {
     opacity: '1'
@@ -43,6 +45,7 @@ class Compare extends Component {
     const {products} = this.state
     return (
       <div className={css(sheet.primary)}>
+        <Similarities products={products} />
         <ProductsList products={this.props.products} match={this.props.match} handleClick={this.handleClick} />
         {products.map((product, i) => <IndividualProduct product={product} key={i} match={this.props.match} />)}
       </div>
