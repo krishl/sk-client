@@ -1,7 +1,7 @@
 # Luminance
 
 Everybody is different in their own way, and this statement does not exclude our skin's reactions to skincare ingredients.
-This tool compares the ingredients between skincare products for similarities.
+This tool compares the ingredients between skincare products for similarities. The API backend is available at https://github.com/krishl/sk-api.
 
 ## Installation
 1. Clone or download Luminance.
