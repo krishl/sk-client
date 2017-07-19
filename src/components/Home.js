@@ -3,7 +3,7 @@ import {StyleSheet, css} from 'aphrodite-jss';
 
 const sheet = StyleSheet.create({
   primary: {
-    height: '490px',
+    height: '562px',
     backgroundColor: 'white',
     opacity: '.8',
     margin: 'auto',

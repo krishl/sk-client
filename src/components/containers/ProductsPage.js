@@ -12,7 +12,7 @@ import NewProduct from '../NewProduct.js';
 
 const sheet = StyleSheet.create({
   primary: {
-    maxHeight: '500px',
+    height: '562px',
     backgroundColor: 'white',
     opacity: '.8',
     margin: 'auto',
