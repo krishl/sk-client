@@ -51,9 +51,15 @@ class ProductsList extends Component {
     this.props.products.map(this.createCheckbox)
   )
 
+  handleClick = (event) => {
+    event.preventDefault();
+    this.props.upvoteProduct(event.target.id)
+  }
+
   renderProducts = () => (
     this.props.products.map(product => 
-      <tr key={product.id} className={css(sheet.row)}><td className={css(sheet.cell)}><Link to={`/products/${product.id}`}>{product.name}</Link></td></tr>
+      <tr key={product.id} className={css(sheet.row)}><td className={css(sheet.cell)}><Link to={`/products/${product.id}`}>{product.name}</Link><br />
+      <button id={product.id} onClick={this.handleClick}>Accurate? {product.upvote}</button></td></tr>
     )
   )
 

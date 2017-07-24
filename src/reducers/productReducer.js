@@ -13,6 +13,8 @@ export default function productReducer(state = initialState.products, action) {
         ...state,
         action.product
       ]
+    case types.UPVOTE_PRODUCT_SUCCESS:
+      return action.product
     default: 
       return state;
   }

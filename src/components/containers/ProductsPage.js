@@ -9,6 +9,8 @@ import {
 } from 'react-router-dom'
 import ProductShow from './ProductShow.js';
 import NewProduct from '../NewProduct.js';
+import { upvoteProduct } from '../../actions/productActions.js'
+
 
 const sheet = StyleSheet.create({
   primary: {
@@ -30,7 +32,7 @@ class ProductsPage extends Component {
     return(
       <div className={css(sheet.primary)}>
         <div className={css(sheet.content)}>
-          <ProductsList products={this.props.products} match={this.props.match} />
+          <ProductsList upvoteProduct={this.props.upvoteProduct} products={this.props.products} match={this.props.match} />
           <Switch>
             <Route path="/products/new" component={NewProduct}/> 
             <Route path="/products/:id" component={ProductShow}/>
@@ -51,4 +53,4 @@ function mapStateToProps(state) {
   }
 } 
 
-export default connect(mapStateToProps)(ProductsPage);  
+export default connect(mapStateToProps,{ upvoteProduct } )(ProductsPage);  

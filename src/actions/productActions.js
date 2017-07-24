@@ -29,3 +29,17 @@ export function createProduct(product, history) {
 export function createProductSuccess(product) {  
   return {type: types.CREATE_PRODUCT_SUCCESS, product}
 }
+
+export function upvoteProduct(id) {
+  return function(dispatch) {
+    return productApi.upvoteProduct(id).then(response => {
+      dispatch(upvoteProductSuccess(response.products));
+    }).catch(error => {
+      throw(error);
+    })
+  }
+}
+
+export function upvoteProductSuccess(product) {  
+  return {type: types.UPVOTE_PRODUCT_SUCCESS, product}
+}
