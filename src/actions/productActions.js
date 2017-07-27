@@ -33,7 +33,7 @@ export function createProductSuccess(product) {
 export function upvoteProduct(id) {
   return function(dispatch) {
     return productApi.upvoteProduct(id).then(response => {
-      dispatch(upvoteProductSuccess(response.products));
+      dispatch(upvoteProductSuccess(response.product));
     }).catch(error => {
       throw(error);
     })
@@ -41,5 +41,5 @@ export function upvoteProduct(id) {
 }
 
 export function upvoteProductSuccess(product) {  
-  return {type: types.UPVOTE_PRODUCT_SUCCESS, product}
+  return {type: types.UPVOTE_PRODUCT_SUCCESS, product: product}
 }

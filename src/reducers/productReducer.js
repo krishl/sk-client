@@ -1,10 +1,6 @@
 import * as types from '../actions/actionTypes'; 
 
-const initialState = {  
-  products: []
-}
-
-export default function productReducer(state = initialState.products, action) {  
+export default function productReducer(state = [], action) {  
   switch(action.type) {
     case types.LOAD_PRODUCTS_SUCCESS:
       return action.products
@@ -14,7 +10,12 @@ export default function productReducer(state = initialState.products, action) {
         action.product
       ]
     case types.UPVOTE_PRODUCT_SUCCESS:
-      return action.product
+      state.forEach(product => {
+        if (product.id === action.product.id) {
+          product.upvote += 1     
+        }
+      })
+      return [...state]
     default: 
       return state;
   }
