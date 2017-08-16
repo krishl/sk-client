@@ -18,7 +18,7 @@ const Similarities = ({products}) => {
   const count = all_ingredients.reduce((a, b) => 
     Object.assign(a, {[b]: (a[b] || 0) + 1}), {})
   
-  const duplicates = Object.keys(count).filter((a) => count[a] > 1)
+  const duplicates = Object.keys(count).filter((a) => count[a] === products.length)
 
   return (
     <div className={css(sheet.content)}>
