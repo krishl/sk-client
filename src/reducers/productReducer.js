@@ -10,12 +10,17 @@ export default function productReducer(state = [], action) {
         action.product
       ]
     case types.UPVOTE_PRODUCT_SUCCESS:
-      state.forEach(product => {
+      const newState = state.map(product => {
         if (product.id === action.product.id) {
-          product.upvote += 1     
+          return {
+            ...product, 
+            upvote: product.upvote + 1
+          }
+        } else {
+          return product
         }
       })
-      return [...state]
+      return newState
     default: 
       return state;
   }
