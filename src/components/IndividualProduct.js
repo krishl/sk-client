@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import IngredientsList from './IngredientsList';
 import {StyleSheet, css} from 'aphrodite-jss';
+import { Link } from 'react-router-dom';
 
 const sheet = StyleSheet.create({
   products: {
@@ -30,7 +31,7 @@ export default class IndividualProduct extends Component {
     return (
       <div className={this.props.match.url === "/compare" ? compareStyle : productsStyle}>
         <h2>{this.props.product.name}</h2>
-        Brand: {this.props.product.brand}
+        Brand: <Link to={`/products/brand/${this.props.product.brand.replace(' ', '_')}`}>{this.props.product.brand}</Link>
         <IngredientsList ingredients={this.props.product.ingredients} /> 
         <br />
       </div>

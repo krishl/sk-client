@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom'
 import ProductShow from './ProductShow.js';
 import NewProduct from '../NewProduct.js';
+import BrandContainer from './BrandContainer.js';
 import { upvoteProduct } from '../../actions/productActions.js'
 
 
@@ -35,6 +36,7 @@ class ProductsPage extends Component {
           <ProductsList upvoteProduct={this.props.upvoteProduct} products={this.props.products} match={this.props.match} />
           <Switch>
             <Route path="/products/new" component={NewProduct}/> 
+            <Route path="/products/brand/:brand" component={BrandContainer} products={this.props.products} />
             <Route path="/products/:id" component={ProductShow}/>
           </Switch>
         </div>
